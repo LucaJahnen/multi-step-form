@@ -1,10 +1,10 @@
-import React from 'react'
+import { BackgroundWrapper } from "./Background.elements"
 
 const Background = () => {
   return (
-    <>
-     Hello World!
-    </>
+    <BackgroundWrapper>
+      Hello World!
+    </BackgroundWrapper>
   )
 }
 
