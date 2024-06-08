@@ -1,8 +1,8 @@
 import { HeadingElement } from "./Heading.elements"
 
-const Heading = ({text}) => {
+const Heading = ({children}) => {
   return (
-    <HeadingElement>{text}</HeadingElement>
+    <HeadingElement>{children}</HeadingElement>
   )
 }
 

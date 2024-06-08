@@ -1,5 +1,7 @@
 import { SlideWrapper, StepContainer, StepsWrapper, Step } from "./FirstSlide.elements"
 import Heading from "../components/Heading/Heading"
+import Paragraph from "../components/Paragraph/Paragraph"
+import InputGroup from "../components/InputGroup/InputGroup"
 
 const FirstSlide = () => {
   return (
@@ -7,11 +9,13 @@ const FirstSlide = () => {
         <StepContainer>
           <StepsWrapper>
             {Array(4).fill("").map((item, index) => {
-              return <Step>{index + 1}</Step>
+              return <Step key={index} active={index == 0}>{index + 1}</Step>
             })}
           </StepsWrapper>
         </StepContainer>
-        <Heading text="Personal Info" />
+        <Heading>Personal Info</Heading>
+        <Paragraph>Please provide your name, email address and phone number.</Paragraph>
+        <InputGroup placeholder="e.g. Stephen King" id="name" label="Name"></InputGroup>
     </SlideWrapper>
   )
 }

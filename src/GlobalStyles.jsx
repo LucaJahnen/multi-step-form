@@ -6,10 +6,23 @@ import UbuntuRegular from "./assets/fonts/Ubuntu-Regular.ttf"
 export const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: "Ubuntu";
-    font-weight: normal;
-    src: url(${UbuntuBold}) format("truetype"),
-    url(${UbuntuMedium}) format("truetype"),
-    url(${UbuntuRegular}) format("truetype");
+    src: url(${UbuntuRegular}) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(${UbuntuMedium}) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(${UbuntuBold}) format("truetype");
+    font-weight: 800;
+    font-style: normal;
 }
 
 * {
