@@ -5,7 +5,7 @@ export const SlideWrapper = styled.section`
 background-color: white;
 border-radius: 0.8rem;
 margin: 30% 5% 0 5%;
-padding: 2rem 1rem;
+padding: 2rem 1.5rem;
 `
 
 export const StepContainer = styled.div`
@@ -36,4 +36,15 @@ display: grid;
 place-items: center;
 background-color: ${props => props.active ? "hsl(206, 94%, 87%)" : "transparent"};
 color: ${props => props.active ? "hsl(213, 96%, 18%)" : "white"};
+`
+
+export const NextSection = styled.div`
+width: 100%;
+background-color: var(--white);
+padding: 1rem;
+display: flex;
+justify-content: flex-end;
+position: absolute;
+bottom: 0;
+left: 0;
 `
