@@ -1,8 +1,8 @@
 import { ButtonElement } from "./Button.elements"
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
   return (
-    <ButtonElement>{children}</ButtonElement>
+    <ButtonElement onClick={onClick}>{children}</ButtonElement>
   )
 }
 
