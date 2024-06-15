@@ -1,7 +1,7 @@
 import SlideWrapper from "../components/SlideWrapper/SlideWrapper"
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
-import { ItemsWrapper, Label, Input, Img, TextWrapper, CardHeading, CardDesc } from "./SecondSlide.elements"
+import { ItemsWrapper, Label, Input, Img, TextWrapper, CardHeading, CardDesc, PeriodLabel, PeriodDesc, PeriodInput } from "./SecondSlide.elements"
 import IconArcade from "../../assets/images/icon-arcade.svg"
 import IconAdvanced from "../../assets/images/icon-advanced.svg"
 import IconPro from "../../assets/images/icon-pro.svg"
@@ -31,15 +31,17 @@ const Cards = [
 const SecondSlide = () => {
   const [checked, setChecked] = useState([true, false, false])
   const handleClick = index => {
-    const nextChecked = checked.map((checked, i) => {
-      if(index === i) {
-        return !checked
-      } else {
-        return checked
+     const nextChecked = () => {
+        if(index === 0) {
+         return [true, false, false]
+        } else if(index === 1) {
+         return [false, true, false]
+       } else if(index === 2) {
+         return [false, false, true]
+        }
       }
-    })
-    setChecked(nextChecked)
-  }
+      setChecked(nextChecked)
+    }
 
   return (
     <SlideWrapper>
@@ -53,10 +55,15 @@ const SecondSlide = () => {
             <CardHeading>{heading}</CardHeading>
             <CardDesc>${price}/mo</CardDesc>
           </TextWrapper>
-          <Input type="checkbox" id={id} checked={checked[index]} onClick={() => handleClick(index)} />
+          <Input type="checkbox" id={id} checked={checked[index]} onChange={() => handleClick(index)} />
         </Label>
         })}
       </ItemsWrapper>
+      <PeriodLabel htmlFor="period-input">
+        <PeriodDesc>Monthly</PeriodDesc>
+        <PeriodInput type="checkbox"id="period-input" />
+        <PeriodDesc>Yearly</PeriodDesc>
+      </PeriodLabel>
     </SlideWrapper>
   )
 }

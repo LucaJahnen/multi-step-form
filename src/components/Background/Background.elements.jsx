@@ -47,7 +47,7 @@ width: 100%;
 background-color: var(--white);
 padding: 1rem;
 display: flex;
-justify-content: flex-end;
+justify-content: space-between;
 position: absolute;
 bottom: 0;
 left: 0;

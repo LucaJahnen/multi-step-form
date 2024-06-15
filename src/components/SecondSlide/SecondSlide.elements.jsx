@@ -4,7 +4,7 @@ export const ItemsWrapper = styled.div`
 margin: 1rem 0;
 display: flex;
 flex-direction: column;
-gap: 1rem;
+gap: 0.7rem;
 `
 
 export const Label = styled.label`
@@ -39,4 +39,22 @@ font-size: 1.1rem;
 export const CardDesc = styled.p`
 color: var(--cool-gray);
 margin-top: 0.3rem;
+`
+
+export const PeriodLabel = styled.label`
+display: flex;
+justify-content: center;
+gap: 1rem;
+background-color: hsla(213, 96%, 18%, 0.1);
+padding: 0.8rem;
+border-radius: 0.4rem;
+`
+
+export const PeriodDesc = styled.p`
+color: var(--marine-blue);
+font-weight: 500;
+`
+
+export const PeriodInput = styled.input`
+
 `

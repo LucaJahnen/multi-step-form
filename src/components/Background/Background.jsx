@@ -3,7 +3,7 @@ import Button from "../components/Button/Button"
 import useForm from "../../useForm"
 
 const Background = () => {
-  const { stepIndex, increment } = useForm(Array(4).fill(null))
+  const { stepIndex, increment, decrement } = useForm(Array(4).fill(null))
   return (
     <BackgroundWrapper>
       <StepContainer>
@@ -14,7 +14,8 @@ const Background = () => {
           </StepsWrapper>
         </StepContainer>
         <NextSection>
-          <Button onClick={increment}>Next Step</Button>
+          <Button onClick={decrement} visible={stepIndex != 0}>Go Back</Button>
+          <Button onClick={increment} primary visible>Next Step</Button>
         </NextSection>
     </BackgroundWrapper>
   )
