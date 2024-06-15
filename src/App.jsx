@@ -9,7 +9,7 @@ function App() {
     <>
       <GlobalStyle />
       <Background />
-      <FirstSlide />
+      <SecondSlide />
     </>
   )
 }
