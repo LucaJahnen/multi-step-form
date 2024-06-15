@@ -1,7 +1,7 @@
 import SlideWrapper from "../components/SlideWrapper/SlideWrapper"
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
-import { ItemsWrapper, Label, Input, Img, TextWrapper, CardHeading, CardDesc, PeriodLabel, PeriodDesc, PeriodInput } from "./SecondSlide.elements"
+import { ItemsWrapper, Label, Input, Img, TextWrapper, CardHeading, CardDesc, CardDiscount, PeriodWrapper, PeriodDesc, PeriodLabel, PeriodInput } from "./SecondSlide.elements"
 import IconArcade from "../../assets/images/icon-arcade.svg"
 import IconAdvanced from "../../assets/images/icon-advanced.svg"
 import IconPro from "../../assets/images/icon-pro.svg"
@@ -30,6 +30,8 @@ const Cards = [
 
 const SecondSlide = () => {
   const [checked, setChecked] = useState([true, false, false])
+  const [monthly, setMonthly] = useState(true)
+  
   const handleClick = index => {
      const nextChecked = () => {
         if(index === 0) {
@@ -53,17 +55,20 @@ const SecondSlide = () => {
           <Img src={src} />
           <TextWrapper>
             <CardHeading>{heading}</CardHeading>
-            <CardDesc>${price}/mo</CardDesc>
+            <CardDesc>${monthly ? `${price}/mo` : `${price * 10}/yr`}</CardDesc>
+            <CardDiscount visible={!monthly}>2 months free</CardDiscount>
           </TextWrapper>
           <Input type="checkbox" id={id} checked={checked[index]} onChange={() => handleClick(index)} />
         </Label>
         })}
       </ItemsWrapper>
-      <PeriodLabel htmlFor="period-input">
-        <PeriodDesc>Monthly</PeriodDesc>
-        <PeriodInput type="checkbox"id="period-input" />
-        <PeriodDesc>Yearly</PeriodDesc>
-      </PeriodLabel>
+      <PeriodWrapper>
+        <PeriodDesc primary={monthly}>Monthly</PeriodDesc>
+          <PeriodLabel htmlFor="period-input">
+            <PeriodInput type="checkbox"id="period-input" checked={monthly} onChange={() => setMonthly(!monthly)} />
+          </PeriodLabel>
+        <PeriodDesc primary={!monthly}>Yearly</PeriodDesc>
+      </PeriodWrapper>
     </SlideWrapper>
   )
 }
