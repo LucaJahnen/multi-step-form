@@ -7,7 +7,7 @@ import IconAdvanced from "../../assets/images/icon-advanced.svg"
 import IconPro from "../../assets/images/icon-pro.svg"
 import { useState } from "react"
 
-const Card = [
+const Cards = [
   {
     src: IconArcade,
     id: "arcade",
@@ -29,20 +29,33 @@ const Card = [
 ]
 
 const SecondSlide = () => {
-  const [checked, setChecked] = useState(true)
+  const [checked, setChecked] = useState([true, false, false])
+  const handleClick = index => {
+    const nextChecked = checked.map((checked, i) => {
+      if(index === i) {
+        return !checked
+      } else {
+        return checked
+      }
+    })
+    setChecked(nextChecked)
+  }
+
   return (
     <SlideWrapper>
       <Heading>Select your plan</Heading>
       <Paragraph>You have the option of monthly or yearly billing.</Paragraph>
       <ItemsWrapper>
-        <Label htmlFor="arcade" checked={checked}>
-          <Img src={IconArcade} />
+        {Cards.map(({ src, id, price, heading }, index) => {
+          return <Label htmlFor={id} checked={checked[index]} key={heading}>
+          <Img src={src} />
           <TextWrapper>
-            <CardHeading>Arcade</CardHeading>
-            <CardDesc>$9/mo</CardDesc>
+            <CardHeading>{heading}</CardHeading>
+            <CardDesc>${price}/mo</CardDesc>
           </TextWrapper>
-          <Input type="checkbox" id="arcade" checked={checked} onClick={() => setChecked(!checked)}></Input>
+          <Input type="checkbox" id={id} checked={checked[index]} onClick={() => handleClick(index)} />
         </Label>
+        })}
       </ItemsWrapper>
     </SlideWrapper>
   )
