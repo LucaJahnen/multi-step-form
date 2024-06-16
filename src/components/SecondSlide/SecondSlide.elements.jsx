@@ -16,8 +16,6 @@ border: 1px solid ${props => props.checked ? "var(--purplish-blue)" : "var(--coo
 background-color: ${props => props.checked ? "hsla(243, 100%, 62%, 0.1)" : "transparent" };
 transition: all 0.3s ease;
 border-radius: 0.4rem;
-display: flex;
-cursor: pointer;
 `
 
 export const Input = styled.input`

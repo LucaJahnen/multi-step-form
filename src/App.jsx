@@ -1,6 +1,7 @@
 import Background from "./components/Background/Background"
 import FirstSlide from "./components/FirstSlide/FirstSlide"
 import SecondSlide from "./components/SecondSlide/SecondSlide"
+import ThirdSlide from "./components/ThirdSlide/ThirdSlide"
 import { GlobalStyle } from "./GlobalStyles"
 import { createContext, useState } from "react"
 
@@ -13,7 +14,7 @@ function App() {
     <PeriodContext.Provider value={{ monthly, setMonthly }}>
       <GlobalStyle />
       <Background />
-      <SecondSlide />
+      <ThirdSlide />
     </PeriodContext.Provider>
   )
 }
