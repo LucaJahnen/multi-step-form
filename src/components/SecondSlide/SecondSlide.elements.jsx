@@ -46,7 +46,6 @@ export const CardDiscount = styled.p`
 color: var(--marine-blue);
 font-size: 0.9rem;
 margin-top: 0.3rem;
-display: ${props => props.visible ? "block" : "none"};
 `
 
 export const PeriodWrapper = styled.div`
