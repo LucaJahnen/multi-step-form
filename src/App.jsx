@@ -2,20 +2,33 @@ import Background from "./components/Background/Background"
 import FirstSlide from "./components/FirstSlide/FirstSlide"
 import SecondSlide from "./components/SecondSlide/SecondSlide"
 import ThirdSlide from "./components/ThirdSlide/ThirdSlide"
+import FourthSlide from "./components/FourthSlide/FourthSlide"
 import { GlobalStyle } from "./GlobalStyles"
-import { createContext, useState } from "react"
 
-export const PeriodContext = createContext()
+const InitialData = {
+  name: "",
+  email: "",
+  phone: "",
+  planIndex: 0,
+  monthly: true,
+  addOns: [true, true, false]
+}
 
 function App() {
   const [monthly, setMonthly] = useState(true)
+  const [data, setData] = useState(InitialData)
+  const updateData = newData => {
+    setData(prev => {
+      return { ...prev, ...newData }
+    })
+  }
 
   return (
-    <PeriodContext.Provider value={{ monthly, setMonthly }}>
+    <>
       <GlobalStyle />
       <Background />
-      <ThirdSlide />
-    </PeriodContext.Provider>
+      <FirstSlide data={data} updateData={updateData}/>
+    </>
   )
 }
 

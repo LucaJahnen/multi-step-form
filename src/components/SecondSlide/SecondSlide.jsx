@@ -5,8 +5,6 @@ import { ItemsWrapper, Label, Input, Img, TextWrapper, CardHeading, CardDesc, Ca
 import IconArcade from "../../assets/images/icon-arcade.svg"
 import IconAdvanced from "../../assets/images/icon-advanced.svg"
 import IconPro from "../../assets/images/icon-pro.svg"
-import { useState, useContext } from "react"
-import { PeriodContext } from "../../App"
 
 const Cards = [
   {
@@ -29,33 +27,31 @@ const Cards = [
   }
 ]
 
-const SecondSlide = () => {
-  const [checkedIndex, setCheckedIndex] = useState(0)
-  const { monthly, setMonthly } = useContext(PeriodContext)
-  
+const SecondSlide = ({ data, updateData }) => {
+
   return (
     <SlideWrapper>
       <Heading>Select your plan</Heading>
       <Paragraph>You have the option of monthly or yearly billing.</Paragraph>
       <ItemsWrapper>
         {Cards.map(({ src, id, price, heading }, index) => {
-          return <Label htmlFor={id} checked={checkedIndex === index} key={heading}>
+          return <Label htmlFor={id} checked={data.planIndex === index} key={heading}>
           <Img src={src} />
           <TextWrapper>
             <CardHeading>{heading}</CardHeading>
-            <CardDesc>${monthly ? `${price}/mo` : `${price * 10}/yr`}</CardDesc>
-            {!monthly && <CardDiscount>2 months free</CardDiscount>}
+            <CardDesc>${data.monthly ? `${price}/mo` : `${price * 10}/yr`}</CardDesc>
+            {!data.monthly && <CardDiscount>2 months free</CardDiscount>}
           </TextWrapper>
-          <Input type="checkbox" id={id} checked={checkedIndex === index} onChange={() => setCheckedIndex(index)} />
+          <Input type="checkbox" id={id} checked={data.planIndex === index} onChange={() => updateData({planIndex: index})} />
         </Label>
         })}
       </ItemsWrapper>
       <PeriodWrapper>
-        <PeriodDesc primary={monthly}>Monthly</PeriodDesc>
+        <PeriodDesc primary={data.monthly}>Monthly</PeriodDesc>
           <PeriodLabel htmlFor="period-input">
-            <PeriodInput type="checkbox"id="period-input" checked={monthly} onChange={() => setMonthly(!monthly)} />
+            <PeriodInput type="checkbox"id="period-input" checked={data.monthly} onChange={() => updateData({ monthly: !data.monthly})} />
           </PeriodLabel>
-        <PeriodDesc primary={!monthly}>Yearly</PeriodDesc>
+        <PeriodDesc primary={!data.monthly}>Yearly</PeriodDesc>
       </PeriodWrapper>
     </SlideWrapper>
   )

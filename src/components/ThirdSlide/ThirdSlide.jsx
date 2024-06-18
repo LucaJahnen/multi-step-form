@@ -2,8 +2,6 @@ import SlideWrapper from "../components/SlideWrapper/SlideWrapper"
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
 import { Label, Checkbox, TextWrapper, CardHeading, CardDesc, CardPrice } from "./ThirdSlide.elements"
-import { useState, useContext } from "react"
-import { PeriodContext } from "../../App"
 
 const Cards = [
     {
@@ -23,18 +21,16 @@ const Cards = [
     }
 ]
 
-const ThirdSlide = () => {
-    const [checked, setChecked] = useState([true, true, false])
-    const { monthly, setMonthly } = useContext(PeriodContext)
+const ThirdSlide = ({ data, updateData }) => {
     const handleClick = index => {
-        const nextChecked = checked.map((item, i) => {
+        const nextAddOns = data.addOns.map((item, i) => {
             if(index === i) {
                 return !item
             } else {
                 return item
             }
         })
-        setChecked(nextChecked)
+        updateData({addOns: nextAddOns})
     }
 
   return (
@@ -42,13 +38,13 @@ const ThirdSlide = () => {
         <Heading>Pick add-ons</Heading>
         <Paragraph>Add-ons help enhance your gaming experience.</Paragraph>
         {Cards.map(({ title, desc, price }, index) => {
-            return <Label key={title} checked={checked[index]}>
-            <Checkbox type="checkbox" checked={checked[index]} onChange={() => handleClick(index)} />
+            return <Label key={title} checked={data.addOns[index]}>
+            <Checkbox type="checkbox" checked={data.addOns[index]} onChange={() => handleClick(index)} />
             <TextWrapper>
                 <CardHeading>{title}</CardHeading>
                 <CardDesc>{desc}</CardDesc>
             </TextWrapper>
-            <CardPrice>+${monthly ? `${price}/mo` : `${price * 10}/yr`}</CardPrice>
+            <CardPrice>+${data.monthly ? `${price}/mo` : `${price * 10}/yr`}</CardPrice>
         </Label>
         })}
     </SlideWrapper>
