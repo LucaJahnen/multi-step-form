@@ -3,6 +3,7 @@ import FirstSlide from "./components/FirstSlide/FirstSlide"
 import SecondSlide from "./components/SecondSlide/SecondSlide"
 import ThirdSlide from "./components/ThirdSlide/ThirdSlide"
 import FourthSlide from "./components/FourthSlide/FourthSlide"
+import FifthSlide from "./components/FifthSlide/FifthSlide"
 import { GlobalStyle } from "./GlobalStyles"
 import { useState } from "react"
 
@@ -28,7 +29,7 @@ function App() {
     <>
       <GlobalStyle />
       <Background />
-      <FourthSlide data={data} updateData={updateData}/>
+      <FifthSlide data={data} updateData={updateData}/>
     </>
   )
 }

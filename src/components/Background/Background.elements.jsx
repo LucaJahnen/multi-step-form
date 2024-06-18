@@ -2,7 +2,7 @@ import styled from "styled-components"
 import bgImage from "../../assets/images/bg-sidebar-mobile.svg"
 
 export const BackgroundWrapper = styled.div`
-background-color: hsl(206, 94%, 87%);
+background-color: var(--light-blue);
 width: 100%;
 height: 100vh;
 position: absolute;
@@ -40,6 +40,7 @@ place-items: center;
 background-color: ${props => props.active ? "hsl(206, 94%, 87%)" : "transparent"};
 color: ${props => props.active ? "hsl(213, 96%, 18%)" : "white"};
 transition: all 0.4s ease;
+font-weight: 500;
 `
 
 export const NextSection = styled.div`
