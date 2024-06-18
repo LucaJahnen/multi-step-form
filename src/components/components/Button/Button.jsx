@@ -1,8 +1,8 @@
 import { ButtonElement } from "./Button.elements"
 
-const Button = ({ children, onClick, primary, visible }) => {
+const Button = ({ children, onClick, primary, visible, bgColor }) => {
   return (
-    <ButtonElement onClick={onClick} primary={primary} visible={visible}>{children}</ButtonElement>
+    <ButtonElement onClick={onClick} primary={primary} visible={visible} bgColor={bgColor}>{children}</ButtonElement>
   )
 }
 

@@ -17,7 +17,7 @@ const InitialData = {
 }
 
 function App() {
-  const [monthly, setMonthly] = useState(true)
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [data, setData] = useState(InitialData)
   const updateData = newData => {
     setData(prev => {
@@ -25,11 +25,23 @@ function App() {
     })
   }
 
+  const slides = [
+    <FirstSlide data={data} updateData={updateData} />, 
+    <SecondSlide data={data} updateData={updateData} />, 
+    <ThirdSlide data={data} updateData={updateData} />, 
+    <FourthSlide data={data} updateData={updateData} />, 
+    <FifthSlide />
+  ]
+
+  const CurrentSlide = () => {
+    return slides[currentSlideIndex]
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Background />
-      <FifthSlide data={data} updateData={updateData}/>
+      <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
+      {CurrentSlide()}
     </>
   )
 }

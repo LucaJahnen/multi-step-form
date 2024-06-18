@@ -16,7 +16,7 @@ background-image: url(${bgImage});
 background-repeat: no-repeat;
 background-size: 100%;
 width: 100%;
-padding: 2.5rem 0 5.5rem 0;
+padding: 2rem 0 5.5rem 0;
 position: absolute;
 top: 0;
 left: 0;
@@ -33,8 +33,8 @@ gap: 1rem;
 export const Step = styled.p`
 border-radius: 50%;
 border: 1px solid white;
-width: 2.2rem;
-height: 2.2rem;
+width: 2rem;
+height: 2rem;
 display: grid;
 place-items: center;
 background-color: ${props => props.active ? "hsl(206, 94%, 87%)" : "transparent"};
@@ -52,4 +52,6 @@ justify-content: space-between;
 position: absolute;
 bottom: 0;
 left: 0;
+transform: ${props => props.visible ? "translateY(0)" : "translateY(100%)"};
+transition: transform 0.6s ease;
 `
