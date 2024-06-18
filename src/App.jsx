@@ -4,6 +4,7 @@ import SecondSlide from "./components/SecondSlide/SecondSlide"
 import ThirdSlide from "./components/ThirdSlide/ThirdSlide"
 import FourthSlide from "./components/FourthSlide/FourthSlide"
 import { GlobalStyle } from "./GlobalStyles"
+import { useState } from "react"
 
 const InitialData = {
   name: "",
@@ -27,7 +28,7 @@ function App() {
     <>
       <GlobalStyle />
       <Background />
-      <FirstSlide data={data} updateData={updateData}/>
+      <FourthSlide data={data} updateData={updateData}/>
     </>
   )
 }
