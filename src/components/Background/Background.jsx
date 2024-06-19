@@ -8,7 +8,7 @@ const Background = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides })
       <StepContainer>
           <StepsWrapper>
             {Array(4).fill(null).map((item, index) => {
-              return <Step key={index} $active={index == currentSlideIndex}>{index + 1}</Step>
+              return <Step key={index} active={currentSlideIndex != numberOfSlides - 1 ? index == currentSlideIndex : index === numberOfSlides - 2}>{index + 1}</Step>
             })}
           </StepsWrapper>
         </StepContainer>

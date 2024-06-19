@@ -6,14 +6,56 @@ import FourthSlide from "./components/FourthSlide/FourthSlide"
 import FifthSlide from "./components/FifthSlide/FifthSlide"
 import { GlobalStyle } from "./GlobalStyles"
 import { useState } from "react"
+import IconArcade from "./assets/images/icon-arcade.svg"
+import IconAdvanced from "./assets/images/icon-advanced.svg"
+import IconPro from "./assets/images/icon-pro.svg"
 
 const InitialData = {
   name: "",
   email: "",
   phone: "",
   planIndex: 0,
+  plans: [
+    {
+      src: IconArcade,
+      id: "arcade",
+      price: 9,
+      heading: "Arcade"
+    },
+    {
+      src: IconAdvanced,
+      id: "advanced",
+      price: 12,
+      heading: "Advanced"
+    },
+    {
+      src: IconPro,
+      id: "pro",
+      price: 15,
+      heading: "Pro"
+    }
+  ],
   monthly: true,
-  addOns: [true, true, false]
+  addOns: [
+    {
+      title: "Online service",
+      desc: "Access to multiplayer games",
+      price: 1,
+      selected: true
+  },
+  {
+      title: "Larger storage",
+      desc: "Extra 1TB of cloud save",
+      price: 2,
+      selected: true
+  },
+  {
+      title: "Customizable profile",
+      desc: "Custom theme on your Profile",
+      price: 2,
+      selected: false
+  }
+  ]
 }
 
 function App() {
@@ -29,7 +71,7 @@ function App() {
     <FirstSlide data={data} updateData={updateData} />, 
     <SecondSlide data={data} updateData={updateData} />, 
     <ThirdSlide data={data} updateData={updateData} />, 
-    <FourthSlide data={data} updateData={updateData} />, 
+    <FourthSlide data={data} updateData={updateData} setCurrentSlideIndex={setCurrentSlideIndex} />, 
     <FifthSlide />
   ]
 

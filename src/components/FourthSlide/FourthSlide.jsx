@@ -3,7 +3,16 @@ import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
 import { ExpensesWrapper, HeadingWrapper, PlanHeading, ChangePlan, Price, AddOn, TotalWrapper } from "./FourthSlide.elements"
 
-const FourthSlide = ({ data }) => {
+const FourthSlide = ({ data, setCurrentSlideIndex }) => {
+  const addOnsTotal = () => {
+    let sum = 0
+    data.addOns.map((addOn) => {
+      if(addOn.selected) {
+        sum += addOn.price
+      }
+    })
+    return sum
+  }
 
   return (
     <SlideWrapper>
@@ -11,18 +20,19 @@ const FourthSlide = ({ data }) => {
         <Paragraph>Double-check everything looks OK before confirming.</Paragraph>
         <ExpensesWrapper>
             <HeadingWrapper>
-                <PlanHeading>Arcade (Monthly)</PlanHeading>
-                <ChangePlan>Change</ChangePlan>
+                <PlanHeading>{data.plans[data.planIndex].heading}{data.monthly ? " (Monthly)" : " (Yearly)"}</PlanHeading>
+                <ChangePlan onClick={() => setCurrentSlideIndex(1)}>Change</ChangePlan>
             </HeadingWrapper>
-            <Price bold>$9/mo</Price>
-            <AddOn>Online service</AddOn>
-            <Price>+$1/mo</Price>
-            <AddOn>Larger storage</AddOn>
-            <Price>+$2/mo</Price>
+            <Price bold>${data.monthly ? `${data.plans[data.planIndex].price}/mo` : `${data.plans[data.planIndex].price * 10}/yr`}</Price>
+            {data.addOns.map((addOn) => {
+              if(addOn.selected) {
+                return <><AddOn>{addOn.title}</AddOn><Price>+${data.monthly ? `${addOn.price}/mo` : `${addOn.price * 10}/yr`}</Price></> 
+              }
+            })}
         </ExpensesWrapper>
         <TotalWrapper>
-            <AddOn>Total (per month)</AddOn>
-            <Price primary bold>$12/mo</Price>
+            <AddOn>Total (per {data.monthly ? "month" : "year"})</AddOn>
+            <Price primary bold>${data.monthly ? data.plans[data.planIndex].price + addOnsTotal() : (data.plans[data.planIndex].price + addOnsTotal()) * 10}</Price>
         </TotalWrapper>
     </SlideWrapper>
   )

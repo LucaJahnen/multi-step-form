@@ -2,7 +2,7 @@ import styled from "styled-components"
 import bgImage from "../../assets/images/bg-sidebar-mobile.svg"
 
 export const BackgroundWrapper = styled.div`
-background-color: var(--light-blue);
+background-color: var(--magnolia);
 width: 100%;
 height: 100vh;
 position: absolute;
