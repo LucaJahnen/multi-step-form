@@ -4,11 +4,14 @@ import SecondSlide from "./components/SecondSlide/SecondSlide"
 import ThirdSlide from "./components/ThirdSlide/ThirdSlide"
 import FourthSlide from "./components/FourthSlide/FourthSlide"
 import FifthSlide from "./components/FifthSlide/FifthSlide"
+import Navigation from "./components/Navigation/Navigation"
 import { GlobalStyle } from "./GlobalStyles"
 import { useState } from "react"
 import IconArcade from "./assets/images/icon-arcade.svg"
 import IconAdvanced from "./assets/images/icon-advanced.svg"
 import IconPro from "./assets/images/icon-pro.svg"
+import SlideWrapper from "./components/components/SlideWrapper/SlideWrapper"
+import { AppWrapper } from "./GlobalStyles"
 
 const InitialData = {
   name: "",
@@ -75,15 +78,16 @@ function App() {
     <FifthSlide />
   ]
 
-  const CurrentSlide = () => {
-    return slides[currentSlideIndex]
-  }
-
   return (
     <>
-      <GlobalStyle />
-      <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
-      {CurrentSlide()}
+    <GlobalStyle />
+    <AppWrapper>
+    <SlideWrapper>
+    <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
+    <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
+    {slides[currentSlideIndex]}
+    </SlideWrapper>
+    </AppWrapper>
     </>
   )
 }

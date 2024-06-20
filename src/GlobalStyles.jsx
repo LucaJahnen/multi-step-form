@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
+import styled from "styled-components"
 import UbuntuBold from "./assets/fonts/Ubuntu-Bold.ttf"
 import UbuntuMedium from "./assets/fonts/Ubuntu-Medium.ttf"
 import UbuntuRegular from "./assets/fonts/Ubuntu-Regular.ttf"
@@ -46,5 +47,13 @@ body {
     --magnolia: hsl(217, 100%, 97%);
     --alabaster: hsl(231, 100%, 99%);
     --white: hsl(0, 0%, 100%);
+}
+`
+
+export const AppWrapper = styled.div`
+@media (min-width: 960px) {
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
 `

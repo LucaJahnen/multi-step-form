@@ -2,6 +2,7 @@ import SlideWrapper from "../components/SlideWrapper/SlideWrapper"
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
 import InputGroup from "../components/InputGroup/InputGroup"
+import { FirstSlideWrapper } from "./FirstSlide.elements"
 
 const FirstSlide = ({ data, updateData }) => {
   const handleSubmit = e => {
@@ -9,7 +10,7 @@ const FirstSlide = ({ data, updateData }) => {
   }
 
   return (
-    <SlideWrapper>
+    <FirstSlideWrapper>
         <Heading>Personal Info</Heading>
         <Paragraph>Please provide your name, email address and phone number.</Paragraph>
         <form action="#" onSubmit={handleSubmit}>
@@ -17,7 +18,7 @@ const FirstSlide = ({ data, updateData }) => {
           <InputGroup placeholder="e. g. stephenking@lorem.com" id="email" label="Email Address" type="email" value={data.email} onChange={e => updateData({email : e.target.value})} />
           <InputGroup placeholder="e. g. 1 234 567 890" id="phone" label="Phone Number" type="number" value={data.phone} onChange={e => updateData({phone : e.target.value})} />
         </form>
-    </SlideWrapper>
+    </FirstSlideWrapper>
   )
 }
 

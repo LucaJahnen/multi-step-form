@@ -1,10 +1,11 @@
 import styled from "styled-components"
 import bgImage from "../../assets/images/bg-sidebar-mobile.svg"
+import bgImageDesktop from "../../assets/images/bg-sidebar-desktop.svg"
 
 export const BackgroundWrapper = styled.div`
 background-color: var(--magnolia);
 width: 100%;
-height: 100vh;
+height: 100%;
 position: absolute;
 top: 0;
 left: 0;
@@ -21,6 +22,14 @@ position: absolute;
 top: 0;
 left: 0;
 z-index: -1;
+
+@media (min-width: 960px) {
+    position: relative;
+    z-index: 999;
+    border-radius: 0.4rem;
+    background-image: url(${bgImageDesktop});
+    grid-area: 1 / 1 / span 4 / span 1;
+}
 `
 
 export const StepsWrapper = styled.div`
@@ -28,6 +37,10 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 gap: 1rem;
+
+@media (min-width: 960px) {
+    flex-direction: column;
+}
 `
 
 export const Step = styled.p`
@@ -54,4 +67,8 @@ bottom: 0;
 left: 0;
 transform: ${props => props.visible ? "translateY(0)" : "translateY(100%)"};
 transition: transform 0.6s ease;
+
+@media (min-width: 960px) {
+    position: relative;
+}
 `
