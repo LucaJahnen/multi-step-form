@@ -29,6 +29,7 @@ z-index: -1;
     border-radius: 0.4rem;
     background-image: url(${bgImageDesktop});
     grid-area: 1 / 1 / span 4 / span 1;
+    padding: 2.4rem 2rem;
 }
 `
 
@@ -40,10 +41,17 @@ gap: 1rem;
 
 @media (min-width: 960px) {
     flex-direction: column;
+    gap: 2rem;
 }
 `
 
-export const Step = styled.p`
+export const Step = styled.section`
+display: flex;
+flex-direction: row;
+gap: 0.9rem;
+`
+
+export const Icon = styled.p`
 border-radius: 50%;
 border: 1px solid white;
 width: 2rem;
@@ -56,19 +64,20 @@ transition: all 0.4s ease;
 font-weight: 500;
 `
 
-export const NextSection = styled.div`
-width: 100%;
-background-color: var(--white);
-padding: 1rem;
-display: flex;
-justify-content: space-between;
-position: absolute;
-bottom: 0;
-left: 0;
-transform: ${props => props.visible ? "translateY(0)" : "translateY(100%)"};
-transition: transform 0.6s ease;
-
-@media (min-width: 960px) {
-    position: relative;
+export const TextWrapper = styled.div`
+@media (max-width: 960px) {
+    display: none;
 }
+`
+
+export const Desc = styled.p`
+color: var(--white);
+font-size: 0.8rem;
+text-transform: uppercase;
+`
+
+export const Heading = styled.h2`
+color: var(--white);
+font-size: 1rem;
+text-transform: uppercase;
 `

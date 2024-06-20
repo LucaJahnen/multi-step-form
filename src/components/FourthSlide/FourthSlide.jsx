@@ -1,4 +1,3 @@
-import SlideWrapper from "../components/SlideWrapper/SlideWrapper"
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
 import { ExpensesWrapper, HeadingWrapper, PlanHeading, ChangePlan, Price, AddOn, TotalWrapper } from "./FourthSlide.elements"
@@ -15,7 +14,7 @@ const FourthSlide = ({ data, setCurrentSlideIndex }) => {
   }
 
   return (
-    <SlideWrapper>
+    <>
         <Heading>Finishing up</Heading>
         <Paragraph>Double-check everything looks OK before confirming.</Paragraph>
         <ExpensesWrapper>
@@ -34,7 +33,7 @@ const FourthSlide = ({ data, setCurrentSlideIndex }) => {
             <AddOn>Total (per {data.monthly ? "month" : "year"})</AddOn>
             <Price primary bold>${data.monthly ? data.plans[data.planIndex].price + addOnsTotal() : (data.plans[data.planIndex].price + addOnsTotal()) * 10}</Price>
         </TotalWrapper>
-    </SlideWrapper>
+    </>
   )
 }
 

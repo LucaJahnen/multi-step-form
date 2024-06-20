@@ -1,4 +1,3 @@
-import SlideWrapper from "../components/SlideWrapper/SlideWrapper"
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
 import { Label, Checkbox, TextWrapper, CardHeading, CardDesc, CardPrice } from "./ThirdSlide.elements"
@@ -16,7 +15,7 @@ const ThirdSlide = ({ data, updateData }) => {
     }
 
   return (
-    <SlideWrapper>
+    <>
         <Heading>Pick add-ons</Heading>
         <Paragraph>Add-ons help enhance your gaming experience.</Paragraph>
         {data.addOns.map(({ title, desc, price }, index) => {
@@ -29,7 +28,7 @@ const ThirdSlide = ({ data, updateData }) => {
             <CardPrice>+${data.monthly ? `${price}/mo` : `${price * 10}/yr`}</CardPrice>
         </Label>
         })}
-    </SlideWrapper>
+    </>
   )
 }
 

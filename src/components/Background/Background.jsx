@@ -1,5 +1,7 @@
-import { BackgroundWrapper, StepContainer, StepsWrapper, Step, NextSection } from "./Background.elements"
-import Button from "../components/Button/Button"
+import { BackgroundWrapper, StepContainer, StepsWrapper, Step, Icon, TextWrapper, Desc, Heading } from "./Background.elements"
+
+const Steps = ["Your Info", "Select Plan", "Add-Ons", "Summary"]
+
 
 const Background = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides }) => {
   const lastSlide = currentSlideIndex === numberOfSlides - 2
@@ -8,8 +10,14 @@ const Background = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides })
     <BackgroundWrapper />
       <StepContainer>
           <StepsWrapper>
-            {Array(4).fill(null).map((item, index) => {
-              return <Step key={index} active={currentSlideIndex === numberOfSlides - 1 ? index === numberOfSlides - 2 : index == currentSlideIndex}>{index + 1}</Step>
+            {Steps.map((item, index) => {
+              return <Step>
+                <Icon key={item} active={currentSlideIndex === numberOfSlides - 1 ? index === numberOfSlides - 2 : index == currentSlideIndex}>{index + 1}</Icon>
+                <TextWrapper>
+                  <Desc>Step {index + 1}</Desc>
+                  <Heading>{item}</Heading>
+                </TextWrapper>
+              </Step>
             })}
           </StepsWrapper>
         </StepContainer>
