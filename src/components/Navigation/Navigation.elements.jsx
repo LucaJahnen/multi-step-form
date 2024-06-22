@@ -15,7 +15,7 @@ transition: transform 0.6s ease;
 
 @media (min-width: 960px) {
     position: static;
-    padding-right: 5rem;
+    padding: 1rem 5rem 1rem 0;
     align-items: flex-end;
     grid-area: 4 / 2 / span 1 / span 3;
 }

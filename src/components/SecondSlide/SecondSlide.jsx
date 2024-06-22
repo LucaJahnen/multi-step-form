@@ -1,11 +1,12 @@
 import Heading from "../components/Heading/Heading"
 import Paragraph from "../components/Paragraph/Paragraph"
 import { ItemsWrapper, Label, Input, Img, TextWrapper, CardHeading, CardDesc, CardDiscount, PeriodWrapper, PeriodDesc, PeriodLabel, PeriodInput } from "./SecondSlide.elements"
+import SlideContainer from "../components/SlideContainer/SlideContainer"
 
 const SecondSlide = ({ data, updateData }) => {
 
   return (
-    <>
+    <SlideContainer>
       <Heading>Select your plan</Heading>
       <Paragraph>You have the option of monthly or yearly billing.</Paragraph>
       <ItemsWrapper>
@@ -28,7 +29,7 @@ const SecondSlide = ({ data, updateData }) => {
           </PeriodLabel>
         <PeriodDesc primary={!data.monthly}>Yearly</PeriodDesc>
       </PeriodWrapper>
-    </>
+    </SlideContainer>
   )
 }
 

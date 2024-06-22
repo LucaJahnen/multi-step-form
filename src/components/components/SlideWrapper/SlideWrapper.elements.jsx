@@ -12,7 +12,7 @@ padding: 2rem 1.5rem;
     width: 65%;
     height: 42vw;
     display: grid;
-    grid-template-columns: 30.5% auto auto;
+    grid-template-columns: 30.5% auto;
     grid-template-rows: repeat(4, 25%);
     grid-column-gap: 11%;
 }
