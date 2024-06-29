@@ -11,6 +11,11 @@ background-color: ${props => props.checked ? "hsla(243, 100%, 62%, 0.1)" : "tran
 transition: all 0.3s ease;
 border-radius: 0.4rem;
 margin-top: 1rem;
+
+@media (min-width: 960px) {
+    padding: 1.4rem 0 1.4rem 1rem;
+    cursor: pointer;
+}
 `
 
 export const Checkbox = styled.input`
@@ -33,6 +38,10 @@ export const CardDesc = styled.p`
 color: var(--cool-gray);
 font-size: 0.8rem;
 margin-top: 0.2rem;
+
+@media (min-width: 960px) {
+    font-size: 0.9rem;
+}
 `
 
 export const CardPrice = styled.p`

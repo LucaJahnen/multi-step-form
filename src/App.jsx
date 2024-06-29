@@ -82,11 +82,11 @@ function App() {
     <>
     <GlobalStyle />
     <AppWrapper>
-    <SlideWrapper>
-    <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
-    <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
-    {slides[currentSlideIndex]}
-    </SlideWrapper>
+      <SlideWrapper>
+        <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
+        <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
+        {slides[currentSlideIndex]}
+      </SlideWrapper>
     </AppWrapper>
     </>
   )
