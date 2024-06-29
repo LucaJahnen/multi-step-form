@@ -10,6 +10,10 @@ position: absolute;
 top: 0;
 left: 0;
 z-index: -1;
+
+@media (min-width: 960px) {
+    height: 100vh;
+}
 `
 
 export const StepContainer = styled.div`

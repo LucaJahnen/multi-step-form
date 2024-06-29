@@ -1,8 +1,8 @@
 import { SlideContainerElement } from "./SlideContainer.elements"
 
-const SlideContainer = ({children}) => {
+const SlideContainer = ({noPadding, children}) => {
   return (
-    <SlideContainerElement>{children}</SlideContainerElement>
+    <SlideContainerElement noPadding={noPadding}>{children}</SlideContainerElement>
   )
 }
 

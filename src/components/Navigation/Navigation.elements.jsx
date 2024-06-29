@@ -4,7 +4,7 @@ export const NextSection = styled.div`
 width: 100%;
 background-color: var(--white);
 padding: 1rem;
-display: flex;
+display: ${props => props.visible ? "flex": "none"};
 justify-content: space-between;
 align-items: center;
 position: absolute;

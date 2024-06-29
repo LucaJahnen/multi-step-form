@@ -15,5 +15,6 @@ padding: 2rem 1.5rem;
     grid-template-columns: 30.5% auto;
     grid-template-rows: repeat(4, 25%);
     grid-column-gap: 11%;
+    overflow: hidden;
 }
 `
