@@ -64,6 +64,7 @@ const InitialData = {
 function App() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [data, setData] = useState(InitialData)
+  const [errors, setErrors] = useState([false, false, false])
   const updateData = newData => {
     setData(prev => {
       return { ...prev, ...newData }
@@ -71,7 +72,7 @@ function App() {
   }
 
   const slides = [
-    <FirstSlide data={data} updateData={updateData} />, 
+    <FirstSlide data={data} updateData={updateData} errors={errors} setErrors={setErrors} />, 
     <SecondSlide data={data} updateData={updateData} />, 
     <ThirdSlide data={data} updateData={updateData} />, 
     <FourthSlide data={data} updateData={updateData} setCurrentSlideIndex={setCurrentSlideIndex} />, 
@@ -84,7 +85,7 @@ function App() {
     <AppWrapper>
       <SlideWrapper>
         <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
-        <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
+        <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} errors={errors} setErrors={setErrors} data={data} />
         {slides[currentSlideIndex]}
       </SlideWrapper>
     </AppWrapper>

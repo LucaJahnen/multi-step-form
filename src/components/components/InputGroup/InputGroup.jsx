@@ -1,10 +1,13 @@
-import { Label, Input } from "./InputGroup.element"
+import { LabelWrapper, Label, Error, Input } from "./InputGroup.element"
 
-const InputGroup = ({ id, label, placeholder, type, value, onChange }) => {
+const InputGroup = ({ id, label, error, placeholder, type, value, onChange }) => {
   return (
     <>
-        <Label htmlFor={id}>{label}</Label>
-        <Input id={id} placeholder={placeholder} type={type} value={value} onChange={onChange} autoComplete="on" />
+        <LabelWrapper>
+          <Label htmlFor={id}>{label}</Label>
+          <Error error={error}>This field is required</Error>
+        </LabelWrapper>
+        <Input id={id} placeholder={placeholder} type={type} value={value} onChange={onChange} autoComplete="on" error={error} />
     </>
   )
 }
