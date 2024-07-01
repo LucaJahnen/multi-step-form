@@ -7,26 +7,37 @@ const Navigation = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides, e
   const { isEmail, isPhone } = FormValidation()
 
   const handleNextStep = () => {
-    let nextErrors = [data.name === "", data.email === "", data.phone === ""]
+    const fields = [data.name, data.email, data.phone]
+    let nextErrors = errors.map(({isError, message}, index) => {
+      return fields[index] === "" ? {isError: true, message: "This field is required"} : {isError, message}
+    })
+    console.log(nextErrors)
     setErrors(nextErrors)
-    console.log(isEmail(data.email))
-    if(nextErrors[0] === false && nextErrors[1] === false && nextErrors[2] === false) {
+    if(!errors[0].isError && !errors[1].isError && !errors[2].isError) {
       setCurrentSlideIndex(currentSlideIndex + 1)
     }
   }
 
   return (
-    <NextSection visible={!(currentSlideIndex === numberOfSlides - 1)}>
+    <NextSection visible={!(currentSlideIndex === numberOfSlides - 1)} flexEnd={currentSlideIndex === 0}>
         <Button 
           onClick={() => setCurrentSlideIndex(currentSlideIndex - 1)} 
-          visible={currentSlideIndex != 0} padding="0.8rem 1rem 0.8rem 0"
+          visible={currentSlideIndex != 0}
+          padding="0.8rem 1rem 0.8rem 0"
         >Go Back</Button>
         <Button 
-          onClick={handleNextStep} 
           primary 
-          bgColor={lastSlide ? "hsl(243, 100%, 62%)" : "hsl(213, 96%, 18%)"} 
-          visible padding={lastSlide ? "0.9rem 2.1rem" : "0.9rem 1.7rem"}
-        >{lastSlide ? "Confirm": "Next Step"}</Button>
+          visible={currentSlideIndex != 3} 
+          bgColor="hsl(213, 96%, 18%)" 
+          onClick={handleNextStep}
+        >Next Step</Button>
+        <Button 
+          primary 
+          visible={currentSlideIndex === 3} 
+          bgColor="hsl(243, 100%, 62%)" 
+          onClick={handleNextStep} 
+          padding="0.9rem 2.1rem"
+        >Confirm</Button>
     </NextSection>
   )
 }

@@ -64,7 +64,7 @@ const InitialData = {
 function App() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [data, setData] = useState(InitialData)
-  const [errors, setErrors] = useState([false, false, false])
+  const [errors, setErrors] = useState([{isError: false, message: ""}, {isError: false, message: ""}, {isError: false, message: ""}])
   const updateData = newData => {
     setData(prev => {
       return { ...prev, ...newData }
@@ -72,7 +72,7 @@ function App() {
   }
 
   const slides = [
-    <FirstSlide data={data} updateData={updateData} errors={errors} setErrors={setErrors} />, 
+    <FirstSlide data={data} updateData={updateData} errors={errors} setErrors={setErrors} currentSlideIndex={currentSlideIndex} />, 
     <SecondSlide data={data} updateData={updateData} />, 
     <ThirdSlide data={data} updateData={updateData} />, 
     <FourthSlide data={data} updateData={updateData} setCurrentSlideIndex={setCurrentSlideIndex} />, 

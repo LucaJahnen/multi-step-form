@@ -1,4 +1,4 @@
-export const FormValidation = () => {
+const FormValidation = () => {
     const isEmail = email => {
         return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
     }

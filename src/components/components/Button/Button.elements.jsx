@@ -8,10 +8,10 @@ border-radius: 0.4rem;
 border: none;
 font-size: 1rem;
 cursor: pointer;
-visibility: ${props => props.visible ? "visible" : "hidden"};
+display: ${props => props.visible ? "block" : "none"};
 
 @media (min-width: 960px) {
     padding: ${props => props.bgColor === undefined ? "0.8rem 1rem 0.8rem 0" : "0.9rem 1.7rem"};
-    padding: ${props => props.padding};
+    padding: ${props => props.padding || "0.9rem 1.7rem"}
 }
 `

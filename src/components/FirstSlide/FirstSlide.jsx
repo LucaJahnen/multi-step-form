@@ -16,7 +16,7 @@ const FirstSlide = ({ data, updateData, errors, setErrors }) => {
             type="text" 
             value={data.name} 
             onChange={e => {updateData({name: e.target.value}); setErrors([false, errors[1], errors[2]])}}
-            error={errors[0]}
+            error={errors[0].isError}
           />
           <InputGroup 
             placeholder="e. g. stephenking@lorem.com" 
@@ -25,7 +25,7 @@ const FirstSlide = ({ data, updateData, errors, setErrors }) => {
             type="email" 
             value={data.email} 
             onChange={e => {updateData({email: e.target.value}); setErrors([errors[0], false, errors[2]])}}
-            error={errors[1]}
+            error={errors[1].isError}
           />
           <InputGroup 
             placeholder="e. g. +1 234 567 890" 
@@ -34,7 +34,7 @@ const FirstSlide = ({ data, updateData, errors, setErrors }) => {
             type="tel" 
             value={data.phone}
             onChange={e => {updateData({phone: e.target.value}); setErrors([errors[0], errors[1], false])}}
-            error={errors[2]}
+            error={errors[2].isError}
           />
         </div>
     </SlideContainer>

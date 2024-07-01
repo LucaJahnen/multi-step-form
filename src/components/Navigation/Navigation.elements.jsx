@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export const NextSection = styled.div`
+export const NextSection = styled.nav`
 width: 100%;
 background-color: var(--white);
 padding: 1rem;
 display: ${props => props.visible ? "flex": "none"};
-justify-content: space-between;
+justify-content: ${props => props.flexEnd ? "flex-end" : "space-between"};
 align-items: center;
 position: absolute;
 bottom: 0;
