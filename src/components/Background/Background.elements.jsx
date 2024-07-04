@@ -62,8 +62,8 @@ width: 2rem;
 height: 2rem;
 display: grid;
 place-items: center;
-background-color: ${props => props.active ? "hsl(206, 94%, 87%)" : "transparent"};
-color: ${props => props.active ? "hsl(213, 96%, 18%)" : "white"};
+background-color: ${props => props.$active ? "hsl(206, 94%, 87%)" : "transparent"};
+color: ${props => props.$active ? "hsl(213, 96%, 18%)" : "white"};
 transition: all 0.4s ease;
 font-weight: 500;
 `

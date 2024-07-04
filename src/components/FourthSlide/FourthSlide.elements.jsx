@@ -33,14 +33,14 @@ text-decoration: underline;
 `
 
 export const Price = styled.p`
-color: ${props => props.primary ? "var(--purplish-blue)" : "var(--marine-blue)"};
-font-weight: ${props => props.bold ? "500" : "400"};
-font-size: ${props => props.primary ? "1.05rem" : "1rem"};
+color: ${props => props.$primary ? "var(--purplish-blue)" : "var(--marine-blue)"};
+font-weight: ${props => props.$bold ? "500" : "400"};
+font-size: ${props => props.$primary ? "1.05rem" : "1rem"};
 justify-self: end;
 
 @media (min-width: 960px) {
-    padding: ${props => props.second ? "0rem 0.8rem" : "1rem 0.8rem"};
-    font-size: ${props => props.primary ? "1.3rem" : "1rem"};
+    padding: ${props => props.$second ? "0rem 0.8rem" : "1rem 0.8rem"};
+    font-size: ${props => props.$primary ? "1.3rem" : "1rem"};
 }
 `
 
@@ -50,7 +50,7 @@ font-size: 1rem;
 font-weight: 400;
 
 @media (min-width: 960px) {
-    padding: ${props => props.second ? "0" : "1rem 0"};
+    padding: ${props => props.$second ? "0" : "1rem 0"};
 }
 `
 

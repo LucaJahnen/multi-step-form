@@ -4,13 +4,13 @@ export const NextSection = styled.nav`
 width: 100%;
 background-color: var(--white);
 padding: 1rem;
-display: ${props => props.visible ? "flex": "none"};
-justify-content: ${props => props.flexEnd ? "flex-end" : "space-between"};
+display: ${props => props.$visible ? "flex": "none"};
+justify-content: ${props => props.$flexEnd ? "flex-end" : "space-between"};
 align-items: center;
 position: absolute;
 bottom: 0;
 left: 0;
-transform: ${props => props.visible ? "translateY(0)" : "translateY(100%)"};
+transform: ${props => props.$visible ? "translateY(0)" : "translateY(100%)"};
 transition: transform 0.6s ease;
 
 @media (min-width: 960px) {

@@ -21,7 +21,7 @@ const ThirdSlide = ({ data, updateData }) => {
         <Paragraph>Add-ons help enhance your gaming experience.</Paragraph>
         {data.addOns.map(({ title, desc, price }, index) => {
             return <Label key={title} checked={data.addOns[index].selected}>
-            <Checkbox type="checkbox" checked={data.addOns[index].selected} onChange={() => handleClick(index)} />
+            <Checkbox type="checkbox" checked={data.addOns[index].selected} onChange={() => handleClick(index)} name={title} />
             <TextWrapper>
                 <CardHeading>{title}</CardHeading>
                 <CardDesc>{desc}</CardDesc>

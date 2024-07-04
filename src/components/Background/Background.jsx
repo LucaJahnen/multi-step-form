@@ -11,8 +11,8 @@ const Background = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides })
       <StepContainer>
           <StepsWrapper>
             {Steps.map((item, index) => {
-              return <Step>
-                <Icon key={item} active={currentSlideIndex === numberOfSlides - 1 ? index === numberOfSlides - 2 : index == currentSlideIndex}>{index + 1}</Icon>
+              return <Step key={item}>
+                <Icon $active={currentSlideIndex === numberOfSlides - 1 ? index === numberOfSlides - 2 : index == currentSlideIndex}>{index + 1}</Icon>
                 <TextWrapper>
                   <Desc>Step {index + 1}</Desc>
                   <Heading>{item}</Heading>

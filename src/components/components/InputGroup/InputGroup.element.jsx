@@ -17,13 +17,13 @@ color: var(--marine-blue);
 
 export const Error = styled.p`
 color: var(--strawberry-red);
-display: ${props => props.error ? "block" : "none"};
+display: ${props => props.$error ? "block" : "none"};
 `
 
 export const Input = styled.input`
 font-size: 1rem;
 padding: 0.7rem;
-outline: 1px solid ${props => props.error ? "var(--strawberry-red)" : "var(--light-gray)"};
+outline: 1px solid ${props => props.$error ? "var(--strawberry-red)" : "var(--light-gray)"};
 border-radius: 0.4rem;
 border: none;
 width: 100%;

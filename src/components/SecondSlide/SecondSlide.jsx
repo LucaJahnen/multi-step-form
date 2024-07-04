@@ -23,11 +23,11 @@ const SecondSlide = ({ data, updateData }) => {
         })}
       </ItemsWrapper>
       <PeriodWrapper>
-        <PeriodDesc primary={data.monthly}>Monthly</PeriodDesc>
+        <PeriodDesc $primary={data.monthly}>Monthly</PeriodDesc>
           <PeriodLabel htmlFor="period-input">
             <PeriodInput type="checkbox"id="period-input" checked={data.monthly} onChange={() => updateData({ monthly: !data.monthly})} />
           </PeriodLabel>
-        <PeriodDesc primary={!data.monthly}>Yearly</PeriodDesc>
+        <PeriodDesc $primary={!data.monthly}>Yearly</PeriodDesc>
       </PeriodWrapper>
     </SlideContainer>
   )

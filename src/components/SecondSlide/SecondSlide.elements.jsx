@@ -81,7 +81,7 @@ margin-top: 1rem;
 `
 
 export const PeriodDesc = styled.p`
-color: ${props => props.primary ? "var(--marine-blue)" : "var(--cool-gray)"};
+color: ${props => props.$primary ? "var(--marine-blue)" : "var(--cool-gray)"};
 font-weight: 500;
 transition: all 0.4s ease;
 

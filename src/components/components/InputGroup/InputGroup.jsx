@@ -5,9 +5,9 @@ const InputGroup = ({ id, label, error, placeholder, type, value, onChange }) =>
     <>
         <LabelWrapper>
           <Label htmlFor={id}>{label}</Label>
-          <Error error={error}>This field is required</Error>
+          <Error $error={error}>This field is required</Error>
         </LabelWrapper>
-        <Input id={id} placeholder={placeholder} type={type} value={value} onChange={onChange} autoComplete="on" error={error} />
+        <Input id={id} placeholder={placeholder} type={type} value={value} onChange={onChange} autoComplete="on" $error={error} />
     </>
   )
 }
