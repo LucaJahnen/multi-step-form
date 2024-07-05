@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${UbuntuRegular}) format("truetype");
     font-weight: 400;
     font-style: normal;
+    font-display: block;
 }
 
 @font-face {
@@ -17,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${UbuntuMedium}) format("truetype");
     font-weight: 500;
     font-style: normal;
+    font-display: block;
 }
 
 @font-face {
@@ -24,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${UbuntuBold}) format("truetype");
     font-weight: 800;
     font-style: normal;
+    font-display: block;
 }
 
 * {

@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
-export const ExpensesWrapper = styled.section`
+export const ExpensesWrapper = styled.div`
 display: grid;
-grid-template-columns: 70% 30%;
+grid-template-columns: 100%;
 grid-template-rows: repeat(3, auto);
 grid-row-gap: 0.8rem;
 background-color: var(--alabaster);
@@ -11,9 +11,13 @@ border-radius: 0.4rem;
 margin-top: 1.2rem;
 `
 
-export const HeadingWrapper = styled.div`
-width: 145%;
+export const HeadingContainer = styled.section`
+display: flex;
+justify-content: space-between;
 border-bottom: 1px solid var(--cool-gray);
+`
+
+export const HeadingWrapper = styled.div`
 padding: 0 0 0.8rem 0;
 `
 
@@ -26,9 +30,14 @@ margin-bottom: 0.2rem;
 export const ChangePlan = styled.a`
 color: var(--cool-gray);
 text-decoration: underline;
+transition: all 0.4s ease;
 
 @media (min-width: 960px) {
     cursor: pointer;
+
+    &:hover {
+        color: var(--purplish-blue);
+    }
 }
 `
 
@@ -42,6 +51,11 @@ justify-self: end;
     padding: ${props => props.$second ? "0rem 0.8rem" : "1rem 0.8rem"};
     font-size: ${props => props.$primary ? "1.3rem" : "1rem"};
 }
+`
+
+export const AddOnWrapper = styled.section`
+display: flex;
+justify-content: space-between;
 `
 
 export const AddOn = styled.h2`

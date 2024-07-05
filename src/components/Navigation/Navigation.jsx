@@ -33,6 +33,7 @@ const Navigation = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides, e
           onClick={() => setCurrentSlideIndex(currentSlideIndex - 1)} 
           visible={currentSlideIndex != 0}
           padding="0.8rem 1rem 0.8rem 0"
+          hover
         >Go Back</Button>
         <Button 
           primary 
@@ -46,6 +47,7 @@ const Navigation = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides, e
           bgColor="hsl(243, 100%, 62%)" 
           onClick={handleNextStep} 
           padding="0.9rem 2.1rem"
+          hoverPrimary
         >Confirm</Button>
     </NextSection>
   )
