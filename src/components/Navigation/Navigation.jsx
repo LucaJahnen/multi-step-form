@@ -7,15 +7,24 @@ const Navigation = ({ currentSlideIndex, setCurrentSlideIndex, numberOfSlides, e
   const { isEmail, isPhone } = FormValidation()
 
   const handleNextStep = () => {
-    // const fields = [data.name, data.email, data.phone]
-    // let nextErrors = errors.map(({isError, message}, index) => {
-    //   return fields[index] === "" ? {isError: true, message: "This field is required"} : {isError, message}
-    // })
-    // console.log(nextErrors)
-    // setErrors(nextErrors)
-    // if(!errors[0].isError && !errors[1].isError && !errors[2].isError) {
+    let errors = {}
+    if(data.name.length === 0) {
+      errors.name = "This field is required"
+    }
+    if(data.email.length === 0) {
+      errors.email = "This field is required"
+    } else if(!isEmail(data.email)) {
+      errors.email = "Invalid email address"
+    }
+    if(data.phone.length === 0) {
+      errors.phone = "This field is required"
+    } else if(!isPhone(data.phone)) {
+      errors.phone = "Invalid phone number"
+    }
+    if(Object.keys(errors).length === 0) {
       setCurrentSlideIndex(currentSlideIndex + 1)
-    // }
+    }
+    setErrors(errors)
   }
 
   return (

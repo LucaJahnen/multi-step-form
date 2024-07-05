@@ -58,7 +58,7 @@ const InitialData = {
 function App() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [data, setData] = useState(InitialData)
-  const [errors, setErrors] = useState([{isError: false, message: ""}, {isError: false, message: ""}, {isError: false, message: ""}])
+  const [errors, setErrors] = useState({})
   const updateData = newData => {
     setData(prev => {
       return { ...prev, ...newData }
