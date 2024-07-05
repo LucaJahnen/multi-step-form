@@ -66,7 +66,7 @@ function App() {
   }
 
   const slides = [
-    <FirstSlide data={data} updateData={updateData} errors={errors} setErrors={setErrors} currentSlideIndex={currentSlideIndex} />, 
+    <FirstSlide data={data} updateData={updateData} errors={errors} currentSlideIndex={currentSlideIndex} />, 
     <SecondSlide data={data} updateData={updateData} />, 
     <ThirdSlide data={data} updateData={updateData} />, 
     <FourthSlide data={data} updateData={updateData} setCurrentSlideIndex={setCurrentSlideIndex} />, 
@@ -76,7 +76,7 @@ function App() {
   return (
     <>
     <GlobalStyle />
-    <AppWrapper>
+    <AppWrapper onSubmit={e => e.preventDefault()}>
       <SlideWrapper>
         <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
         <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} errors={errors} setErrors={setErrors} data={data} />

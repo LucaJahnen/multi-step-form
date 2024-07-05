@@ -20,14 +20,16 @@ const ThirdSlide = ({ data, updateData }) => {
         <Heading>Pick add-ons</Heading>
         <Paragraph>Add-ons help enhance your gaming experience.</Paragraph>
         {data.addOns.map(({ title, desc, price }, index) => {
-            return <Label key={title} checked={data.addOns[index].selected}>
-            <Checkbox type="checkbox" checked={data.addOns[index].selected} onChange={() => handleClick(index)} name={title} />
-            <TextWrapper>
-                <CardHeading>{title}</CardHeading>
-                <CardDesc>{desc}</CardDesc>
-            </TextWrapper>
-            <CardPrice>+${data.monthly ? `${price}/mo` : `${price * 10}/yr`}</CardPrice>
-        </Label>
+            return (
+            <Label key={title} checked={data.addOns[index].selected}>
+                <Checkbox type="checkbox" checked={data.addOns[index].selected} onChange={() => handleClick(index)} name={title} />
+                <TextWrapper>
+                    <CardHeading>{title}</CardHeading>
+                    <CardDesc>{desc}</CardDesc>
+                </TextWrapper>
+                <CardPrice>+${data.monthly ? `${price}/mo` : `${price * 10}/yr`}</CardPrice>
+            </Label>
+        )
         })}
     </SlideContainer>
   )

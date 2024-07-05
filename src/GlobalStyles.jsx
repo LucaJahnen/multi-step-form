@@ -53,7 +53,7 @@ body {
 }
 `
 
-export const AppWrapper = styled.main`
+export const AppWrapper = styled.form`
 @media (min-width: 960px) {
     display: grid;
     place-items: center;

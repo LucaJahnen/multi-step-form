@@ -3,12 +3,12 @@ import Paragraph from "../components/Paragraph/Paragraph"
 import InputGroup from "../components/InputGroup/InputGroup"
 import SlideContainer from "../components/SlideContainer/SlideContainer"
 
-const FirstSlide = ({ data, updateData, errors, setErrors }) => {
+const FirstSlide = ({ data, updateData, errors }) => {
 
   return (
     <SlideContainer>
         <Heading>Personal Info</Heading>
-        <Paragraph>Please provide your name, email address and phone number.</Paragraph>
+        <Paragraph>Please provide your name, email address, and phone number.</Paragraph>
         <div>
           <InputGroup 
             placeholder="e.g. Stephen King" 

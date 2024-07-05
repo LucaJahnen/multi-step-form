@@ -16,12 +16,12 @@ z-index: -1;
 }
 `
 
-export const StepContainer = styled.div`
+export const StepContainer = styled.aside`
 background-image: url(${bgImage});
 background-repeat: no-repeat;
 background-size: 100%;
 width: 100%;
-padding: 2rem 0 5.5rem 0;
+padding: 2rem 0 6.7rem 0;
 position: absolute;
 top: 0;
 left: 0;
