@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import bgImage from "../../assets/images/bg-sidebar-mobile.svg"
-import bgImageDesktop from "../../assets/images/bg-sidebar-desktop.svg"
+import bgImage from "/images/bg-sidebar-mobile.svg"
+import bgImageDesktop from "/images/bg-sidebar-desktop.svg"
 
 export const BackgroundWrapper = styled.div`
 background-color: var(--magnolia);
