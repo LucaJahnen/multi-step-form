@@ -42,8 +42,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [View solution on Frontendmentor](https://www.frontendmentor.io/solutions/react-multi-step-form-ua6nbESEzN)
+- Live Site URL: [View Live Site](https://multi-step-form27.netlify.app)
 
 ## My process
 
