@@ -6,6 +6,7 @@ import IconPro from "/images/icon-pro.svg"
 import SlideWrapper from "./components/components/SlideWrapper/SlideWrapper"
 import { AppWrapper } from "./GlobalStyles"
 import { FirstSlide, SecondSlide, ThirdSlide, FourthSlide, FifthSlide, Navigation, Background } from "./components"
+import FormValidation from "./FormValidation"
 
 const InitialData = {
   name: "",
@@ -73,10 +74,38 @@ function App() {
     <FifthSlide />
   ]
 
+  const handleSubmit = e => {
+    const { isEmail, isPhone } = FormValidation()
+    e.preventDefault()
+    
+    let errors = {}
+    if(data.name.length === 0) {
+      errors.name = "This field is required"
+    }
+    if(data.email.length === 0) {
+      errors.email = "This field is required"
+    } else if(!isEmail(data.email)) {
+      errors.email = "Invalid email address"
+    }
+    if(data.phone.length === 0) {
+      errors.phone = "This field is required"
+    } else if(!isPhone(data.phone)) {
+      errors.phone = "Invalid phone number"
+    }
+    if(Object.keys(errors).length === 0) {
+      setCurrentSlideIndex(currentSlideIndex + 1)
+      console.log("success")
+    } else {
+      setCurrentSlideIndex(0)
+    }
+    setErrors(errors)
+    console.log(errors)
+  }
+
   return (
     <>
     <GlobalStyle />
-    <AppWrapper onSubmit={e => e.preventDefault()}>
+    <AppWrapper onSubmit={handleSubmit}>
       <SlideWrapper>
         <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
         <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} errors={errors} setErrors={setErrors} data={data} />

@@ -1,6 +1,6 @@
 import { ButtonElement } from "./Button.elements"
 
-const Button = ({ children, onClick, primary, visible, bgColor, padding, hover, hoverPrimary }) => {
+const Button = ({ children, onClick, primary, visible, bgColor, padding, hover, hoverPrimary, type }) => {
   return (
     <ButtonElement 
       onClick={onClick} 
@@ -10,6 +10,7 @@ const Button = ({ children, onClick, primary, visible, bgColor, padding, hover, 
       $padding={padding}
       $hover={hover}
       $hoverPrimary={hoverPrimary}
+      type={type}
     >{children}</ButtonElement>
   )
 }
