@@ -12,6 +12,10 @@ transition: all 0.3s ease;
 border-radius: 0.4rem;
 margin-top: 1rem;
 
+&:hover {
+    border: 1px solid var(--purplish-blue);
+}
+
 @media (min-width: 960px) {
     padding: 1.4rem 0 1.4rem 1rem;
     cursor: pointer;
@@ -23,6 +27,10 @@ accent-color: var(--purplish-blue);
 width: 1.2rem;
 aspect-ratio: 1 / 1;
 border-radius: 0.2rem;
+
+&:focus-visible {
+    outline: 2px solid var(--purplish-blue);
+}
 `
 
 export const TextWrapper = styled.section`

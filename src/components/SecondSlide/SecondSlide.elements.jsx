@@ -16,10 +16,14 @@ display: flex;
 align-items: flex-start;
 width: 100%;
 padding: 0.75rem;
-border: 1px solid ${props => props.checked ? "var(--purplish-blue)" : "var(--cool-gray)" };
+border: 1px solid ${props => props.checked || props.$focus ? "var(--purplish-blue)" : "var(--cool-gray)" };
 background-color: ${props => props.checked ? "hsla(243, 100%, 62%, 0.1)" : "transparent" };
 transition: all 0.3s ease;
 border-radius: 0.4rem;
+
+&:hover {
+    border: 1px solid var(--purplish-blue);
+}
 
 @media (min-width: 960px) {
     flex-direction: column;
@@ -29,7 +33,8 @@ border-radius: 0.4rem;
 `
 
 export const Input = styled.input`
-display: none;
+width: 0;
+height: 0;
 `
 
 export const Img = styled.img`
@@ -116,4 +121,15 @@ top: 50%;
 left: 0.2rem;
 transform: ${props => props.checked ? "translate(0, -50%)" : "translate(1.4rem, -50%)"};
 transition: all 0.4s ease;
+`
+
+export const Input2 = styled.input`
+&:focus {
+    outline: 1px solid red;
+}
+`
+
+export const Label2 = styled.label`
+padding: 1rem;
+border: 1px solid ${props => props.$focus ? "red" : "black"};
 `

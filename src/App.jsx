@@ -94,12 +94,10 @@ function App() {
     }
     if(Object.keys(errors).length === 0) {
       setCurrentSlideIndex(currentSlideIndex + 1)
-      console.log("success")
     } else {
       setCurrentSlideIndex(0)
     }
     setErrors(errors)
-    console.log(errors)
   }
 
   return (
@@ -108,8 +106,8 @@ function App() {
     <AppWrapper onSubmit={handleSubmit}>
       <SlideWrapper>
         <Background currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} />
-        <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} errors={errors} setErrors={setErrors} data={data} />
         {slides[currentSlideIndex]}
+        <Navigation currentSlideIndex={currentSlideIndex} setCurrentSlideIndex={setCurrentSlideIndex} numberOfSlides={slides.length} errors={errors} setErrors={setErrors} data={data} />
       </SlideWrapper>
     </AppWrapper>
     </>
